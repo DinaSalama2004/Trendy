@@ -35,8 +35,8 @@
     @else if (step==2) {
       <form [formGroup]="VerifyResetCodeForm" (ngSubmit)="verifyPass()" class="space-y-4 text-sm">
         <div>
-          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.resetCode' | translate }}</label>
-          <input type="text" formControlName="resetCode" placeholder="{{ 'login.resetCode' | translate }}"
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">resetCode</label>
+          <input type="text" formControlName="resetCode" placeholder="resetCode"
             class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
         </div>
 
@@ -63,13 +63,13 @@
     @else if (step==3) {
       <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPass()" class="space-y-4 text-sm">
         <div>
-          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.email' | translate }}</label>
-          <input type="email" formControlName="email" readonly placeholder="{{ 'login.email' | translate }}"
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">email</label>
+          <input type="email" formControlName="email" readonly placeholder="login.email"
             class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
         </div>
 
         <div>
-          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.newPassword' | translate }}</label>
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">newPassword</label>
           <input type="password" formControlName="newPassword" placeholder="{{ 'login.newPassword' | translate }}"
             class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
         </div>

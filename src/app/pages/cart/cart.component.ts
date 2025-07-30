@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   private readonly cartService = inject(CartService);
   private readonly productService = inject(GetProductsService);
   cartDetails:Icart={} as Icart
+
   private readonly toastr=inject(ToastService) 
 
 
