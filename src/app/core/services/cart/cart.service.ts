@@ -38,7 +38,7 @@ export class CartService {
       {
         headers: {
 
-          token:this.token
+          token:localStorage.getItem("token") || ''
         }
       }
     ).pipe(
@@ -62,7 +62,7 @@ export class CartService {
 
       {
         headers: {
-          token:this.token
+          token:localStorage.getItem("token") || ''
         }
       }
     ).pipe(
@@ -81,7 +81,7 @@ export class CartService {
       {
 
         headers: {
-          token:this.token 
+          token:localStorage.getItem("token") || '' 
         }
       }
     ).pipe(
@@ -100,7 +100,7 @@ export class CartService {
     return this.httpClient.delete(`${environment.baseUrl}cart/${prodId}`,
       {
         headers: {
-          token:this.token 
+          token:localStorage.getItem("token") || ''
         }
       }
     )
@@ -112,7 +112,7 @@ export class CartService {
     return this.httpClient.delete(`${environment.baseUrl}cart`,
       {
         headers: {
-          token:this.token 
+          token:localStorage.getItem("token") || ''
         }
       }
     )
