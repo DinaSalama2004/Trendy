@@ -29,8 +29,16 @@ export const routes: Routes = [
 {path:'products', component:ProductsComponent , title:'products'}, 
 {path:'cart', component:CartComponent , title:'cart'},
 {path:'Favorite Products', component:FavoriteProductsComponent , title:'Favorite Products'},
-
-{path:'details/:id', component:DetailsComponent , title:'prod Details'},
+{
+    path: 'details/:id',
+    component: DetailsComponent,
+    data: {
+      renderMode: 'server'
+    }
+    , title:'prod Details'
+  },
+  
+// {path:'details/:id', component:DetailsComponent , title:'prod Details'},
 {path:'checkOut/:id', component:CheckoutComponent , title:'check Out'},
 {path:'allorders', component:AllOrdersComponent , title:'all orders'},
 
