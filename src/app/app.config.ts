@@ -3,7 +3,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideRouter, withInMemoryScrolling,  } from '@angular/router';
+import { provideRouter, withInMemoryScrolling, withHashLocation } from '@angular/router';
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import {provideAnimations}  from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
@@ -41,9 +41,12 @@ export const appConfig: ApplicationConfig = {
        
     
     ),
+    // withHashLocation means start route after #  because sometimes server not know from where start routing used usally because servers can handel it  ده يفضل استخدمة لما ارفع ع سيرفر و  يجيب ايرور ف الراوتينج
+    
+
     provideRouter(
       routes ,
-
+      withHashLocation() , 
     //  when the page has conenet large that have scroll i want when open page start from top for example 
     // 3 types 
     // 1- disabled default  means  لما يتحرك من روت ل التانية مش بيرجع السكرول ل فوق 
@@ -51,6 +54,7 @@ export const appConfig: ApplicationConfig = {
     // 3-  enabled  ده علشان احل التوب اني لما ارجع ينزلني عند نفس الحته اللي انا كنت فيها 
     
       withInMemoryScrolling({scrollPositionRestoration:"enabled"})),
+  
     
   
   ]
