@@ -1,0 +1,51 @@
+<section class="container mx-auto flex items-center justify-center min-h-screen  transition duration-300">
+  <div class="bg-white dark:bg-gray-900 shadow-md border border-gray-300 dark:border-gray-600 rounded-lg p-6 w-full max-w-sm">
+    <h2 class="text-xl font-bold text-center text-orange-600 dark:text-orange-400 mb-4">Check Out</h2>
+
+    <form [formGroup]="checkOutForm" (ngSubmit)="submit()">
+      <div>
+        <label class="block my-2 text-orange-600 dark:text-orange-400 mb-1">Details</label>
+        <input type="text" formControlName="details"
+          class="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded focus:outline-none focus:ring-1 focus:ring-orange-500 dark:focus:ring-orange-400" />
+      </div>
+
+      <div>
+        <label class="block my-2 text-orange-600 dark:text-orange-400 mb-1">Phone</label>
+        <input type="text" formControlName="phone"
+          class="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded focus:outline-none focus:ring-1 focus:ring-orange-500 dark:focus:ring-orange-400" />
+      </div>
+
+      <div>
+        <label class="block my-2 text-orange-600 dark:text-orange-400 mb-1">City</label>
+        <input type="text" formControlName="city"
+          class="w-full px-2 py-1 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded focus:outline-none focus:ring-1 focus:ring-orange-500 dark:focus:ring-orange-400" />
+      </div>
+
+      <div class="flex flex-wrap w-full justify-between gap-3 mt-3">
+        <div class="flex items-center ps-4 rounded-sm">
+          <input id="bordered-radio-1" type="radio" value="cash" name="bordered-radio"
+            (change)="onChange($event)"
+            class="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 dark:bg-gray-700 dark:border-gray-600 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2">
+          <label for="bordered-radio-1"
+            class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pay on delivery</label>
+        </div>
+
+        <div class="flex items-center ps-4 rounded-sm ">
+          <input checked id="bordered-radio-2" type="radio" value="credit" name="bordered-radio"
+            (change)="onChange($event)"
+            class="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 dark:bg-gray-700 dark:border-gray-600 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2">
+          <label for="bordered-radio-2"
+            class="w-full py-2 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pay with credit</label>
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full my-4 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 rounded transition text-sm cursor-pointer">
+        Check Out
+        @if (isLoading) {
+        <i class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse ms-2"></i>
+        }
+      </button>
+    </form>
+  </div>
+</section>

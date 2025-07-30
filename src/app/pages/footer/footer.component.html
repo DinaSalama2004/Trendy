@@ -1,0 +1,60 @@
+<footer class="bg-gray-200 dark:bg-gray-900 px-6 py-10 text-sm md:text-base transition-colors duration-300 ">
+  <!-- App Invitation -->
+  <div class="max-w-6xl mx-auto mb-10">
+    <h3 class="text-gray-800 dark:text-white font-semibold text-xl mb-1">
+      {{ 'footer.appTitle' | translate }}
+    </h3>
+    <p class="text-orange-500 dark:text-orange-400 mb-4">
+      {{ 'footer.appDescription' | translate }}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3">
+      <input
+        type="email"
+        placeholder="{{ 'footer.placeholder' | translate }}"
+        class="w-full sm:w-auto flex-grow border border-gray-300 dark:border-gray-600 focus:border-orange-500 focus:ring-0 px-4 py-2 rounded bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+      />
+      <button
+        class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition dark:bg-orange-600 dark:hover:bg-orange-500"
+      >
+        {{ 'footer.button' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <hr class="border-gray-300  dark:border-gray-700 my-8" />
+
+  <!-- Payment and Store Info -->
+  <div class="max-w-6xl mx-auto flex flex-wrap  justify-between">
+    <!-- Payment Section -->
+    <div>
+      <h6 class="text-gray-700 dark:text-white font-medium mb-3">
+        {{ 'footer.paymentTitle' | translate }}
+      </h6>
+      <div class="flex items-center gap-4 flex-wrap">
+        <img src="images/amazon-pay.png" alt="Amazon Pay" class="w-14 h-auto object-contain" />
+        <img src="images/American-Express-Color.png" alt="Amex" class="w-14 h-auto object-contain" />
+        <img src="images/mastercard.webp" alt="MasterCard" class="w-14 h-auto object-contain" />
+        <img src="images/paypal.png" alt="PayPal" class="w-14 h-auto object-contain" />
+      </div>
+    </div>
+
+    <!-- App Stores -->
+    <div>
+      <h6 class="text-gray-700 dark:text-white font-medium mb-3">
+        {{ 'footer.downloadTitle' | translate }}
+      </h6>
+      <div class="flex items-center gap-4">
+        <img src="images/get-apple-store.png" alt="Apple Store" class="w-32 h-auto object-contain" />
+        <img src="images/get-google-play.png" alt="Google Play" class="w-32 h-auto object-contain" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media -->
+  <hr class="border-gray-300  dark:border-gray-700  mt-3" />
+
+  <div class="flex justify-center text-white pt-5">
+
+   Made by dina Salama 
+  </div>
+</footer>

@@ -1,0 +1,21 @@
+<div class="py-10 px-4">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-gray-800 dark:text-white uppercase tracking-wider relative inline-block">
+        <span class="relative z-10 text-orange-500">Your</span>
+        <span class="relative z-10 text-gray-800 dark:text-white">Favorite Products</span>
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-1 bg-orange-400 rounded-full -z-10"></span>
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+        Browse our hand-picked selection of top-quality items curated just for you.
+      </p>
+    </div>
+  
+    <!-- Products -->
+    <div class="max-w-7xl mx-auto">
+      <app-card [products]="favoriteProducts()"></app-card>
+    </div>
+  
+  </div>
+  

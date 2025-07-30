@@ -1,0 +1,91 @@
+
+<div class="space-y-8 p-6 bg-gray-100 dark:bg-gray-800 min-h-screen transition-colors duration-300">
+
+  <!-- Total Price -->
+  <div class="flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+    <p class="text-xl font-semibold text-gray-700 dark:text-gray-100">
+      Total Cost:
+      <span class="text-orange-600 dark:text-orange-400 font-bold">{{ cartDetails.totalCartPrice }} EGP</span>
+    </p>
+    <button
+      class="mt-4 sm:mt-0 px-5 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 dark:hover:bg-orange-400 transition">
+      Clear Cart
+    </button>
+  </div>
+
+  <!-- Cart Items  -->
+  @for (prod of cartDetails.products; track prod._id) {
+    <div
+      class="flex flex-col md:flex-row items-center bg-white dark:bg-gray-900 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 p-6 gap-6 transition-all hover:shadow-xl">
+      
+      <!-- Product Image -->
+      <img [src]="prod.product.imageCover" alt="{{ prod.product.title }}"
+           class="w-32 h-32 object-cover rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm" />
+
+      <!-- Product Info -->
+      <div class="flex-1 flex flex-col gap-2 text-gray-700 dark:text-gray-200">
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ prod.product.title }}</h2>
+
+        <p class="text-sm">
+          <span class="text-gray-500 dark:text-gray-400">Brand:</span>
+          <span class="font-medium">{{ prod.product.brand?.name }}</span>
+        </p>
+
+        <p class="text-sm">
+          <span class="text-gray-500 dark:text-gray-400">Category:</span>
+          <span class="font-medium">{{ prod.product.category?.name }}</span>
+        </p>
+
+        <p class="text-sm">
+          <span class="text-gray-500 dark:text-gray-400">Rating:</span>
+          <span class="text-yellow-500 font-bold">★ {{ prod.product.ratingsAverage }}</span>
+        </p>
+
+        <p class="text-sm">
+          <span class="text-gray-500 dark:text-gray-400">Unit Price:</span>
+          <span class="text-orange-600 dark:text-orange-400 font-medium">{{ prod.price }} EGP</span>
+        </p>
+
+        <p class="text-sm">
+          <span class="text-gray-500 dark:text-gray-400">Quantity:</span>
+          <span class="font-semibold text-gray-900 dark:text-gray-100">{{ prod.count }}</span>
+        </p>
+
+        <p class="text-sm mt-1">
+          <span class="text-gray-500 dark:text-gray-400">Subtotal:</span>
+          <span class="text-orange-700 dark:text-orange-300 font-bold">{{ prod.price * prod.count }} EGP</span>
+        </p>
+      </div>
+
+      <!-- Quantity  -->
+      <div class="flex flex-col gap-3 items-center justify-center">
+        <div class="flex items-center gap-2">
+          <button
+            class="w-8 h-8 flex items-center justify-center cursor-pointer bg-gray-200 dark:bg-gray-500 text-black dark:text-white rounded hover:bg-gray-300 dark:hover:bg-gray-500"
+            (click)='updateQuantity(prod.product._id, prod.count - 1)'>−</button>
+
+          <span class="w-6 text-center font-semibold  text-gray-800 dark:text-white">{{ prod.count }}</span>
+
+          <button
+            class="w-8 h-8 flex items-center justify-center cursor-pointer bg-gray-200 dark:bg-gray-500 text-black dark:text-white rounded hover:bg-gray-300 dark:hover:bg-gray-500"
+            (click)='updateQuantity(prod.product._id, prod.count + 1)'>+</button>
+        </div>
+
+        <button
+          class="w-full px-3 py-1 bg-red-500 cursor-pointer text-white rounded hover:bg-red-600 dark:hover:bg-red-400 transition"
+          (click)="removeCartItem(prod.product._id)">Remove</button>
+      </div>
+    </div>
+  }
+
+  <!-- Checkout  -->
+  @if (cartDetails?.products?.length) {
+    <div class="flex justify-center">
+      <button
+        class="w-full cursor-pointer sm:w-1/2 md:w-1/3 px-6 py-3 mt-4 text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400 font-medium rounded-xl transition"
+        [routerLink]="['/checkOut', cartDetails._id]">
+     Checkout
+      </button>
+    </div>
+  }
+</div>

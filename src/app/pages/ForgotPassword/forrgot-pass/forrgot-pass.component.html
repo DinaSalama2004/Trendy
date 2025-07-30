@@ -1,0 +1,97 @@
+<section class="container mx-auto flex min-h-screen items-center justify-center  px-4 py-8">
+  <div class="bg-white dark:bg-gray-900 shadow-lg rounded-lg p-6 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center text-orange-600 dark:text-orange-400 mb-6">
+      {{ 'login.smartLogin' | translate }}
+    </h2>
+
+    @if (step==1) {
+      <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgetPass()" class="space-y-4 text-sm">
+        <div>
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.email' | translate }}</label>
+          <input type="email" formControlName="email" placeholder="{{ 'login.email' | translate }}"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        </div>
+
+        @if(successMessage){
+          <p class="text-center bg-orange-100 dark:bg-orange-800 border border-orange-700 text-orange-800 dark:text-orange-200 p-2 rounded">
+            {{successMessage}}</p>
+        }  
+        @else {
+          <button type="submit"
+            class="w-full bg-orange-500 text-white font-medium py-2 rounded hover:bg-orange-600 transition">
+            {{ 'submit' | translate }}
+            @if (isLoading) {
+              <i class="fa-solid fa-spinner fa-spin-pulse ms-2"></i>
+            }
+          </button>
+          @if (errorMessage) {
+            <p class="text-center bg-red-100 dark:bg-red-800 text-red-700 dark:text-red-200 border border-red-700 p-2 rounded">
+              {{errorMessage}}</p>
+          }
+        }
+      </form>
+    }
+
+    @else if (step==2) {
+      <form [formGroup]="VerifyResetCodeForm" (ngSubmit)="verifyPass()" class="space-y-4 text-sm">
+        <div>
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.resetCode' | translate }}</label>
+          <input type="text" formControlName="resetCode" placeholder="{{ 'login.resetCode' | translate }}"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        </div>
+
+        @if(successMessage){
+          <p class="text-center bg-orange-100 dark:bg-orange-800 border border-orange-700 text-orange-800 dark:text-orange-200 p-2 rounded">
+            {{successMessage}}</p>
+        }  
+        @else {
+          <button type="submit"
+            class="w-full bg-orange-500 text-white font-medium py-2 rounded hover:bg-orange-600 transition">
+            {{ 'submit' | translate }}
+            @if (isLoading) {
+              <i class="fa-solid fa-spinner fa-spin-pulse ms-2"></i>
+            }
+          </button>
+          @if (errorMessage) {
+            <p class="text-center bg-red-100 dark:bg-red-800 text-red-700 dark:text-red-200 border border-red-700 p-2 rounded">
+              {{errorMessage}}</p>
+          }
+        }
+      </form>
+    }
+
+    @else if (step==3) {
+      <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPass()" class="space-y-4 text-sm">
+        <div>
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.email' | translate }}</label>
+          <input type="email" formControlName="email" readonly placeholder="{{ 'login.email' | translate }}"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 dark:text-gray-300 mb-1">{{ 'login.newPassword' | translate }}</label>
+          <input type="password" formControlName="newPassword" placeholder="{{ 'login.newPassword' | translate }}"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        </div>
+
+        @if(successMessage){
+          <p class="text-center bg-orange-100 dark:bg-orange-800 border border-orange-700 text-orange-800 dark:text-orange-200 p-2 rounded">
+            {{successMessage}}</p>
+        }  
+        @else {
+          <button type="submit"
+            class="w-full bg-orange-500 text-white font-medium py-2 rounded hover:bg-orange-600 transition">
+            {{ 'submit' | translate }}
+            @if (isLoading) {
+              <i class="fa-solid fa-spinner fa-spin-pulse ms-2"></i>
+            }
+          </button>
+          @if (errorMessage) {
+            <p class="text-center bg-red-100 dark:bg-red-800 text-red-700 dark:text-red-200 border border-red-700 p-2 rounded">
+              {{errorMessage}}</p>
+          }
+        }
+      </form>
+    }
+  </div>
+</section>

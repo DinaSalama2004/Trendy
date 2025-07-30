@@ -1,0 +1,84 @@
+@if (productDtails) {
+    <div class="container mx-auto px-4 py-10">
+      <div class="grid md:grid-cols-[40%_1fr] gap-10 bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6">
+        
+        <!-- Product Images Section -->
+        <div>
+          <!-- Main Image -->
+          <img
+            [src]="selectedImage"
+            [alt]="productDtails.title"
+            class="w-full rounded-lg shadow-md object-cover border border-gray-200 dark:border-gray-700"
+          />
+  
+          <!-- Thumbnail Gallery -->
+          <div class="flex gap-3 mt-4 flex-wrap">
+            @for (img of productDtails.images; track img) {
+              <img
+                [src]="img"
+                [alt]="productDtails.title"
+                class="w-16 h-16 object-cover rounded border transition-all duration-200 transform hover:scale-105 cursor-pointer hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-200 "
+                (click)="changeImage(img)"
+                [class]="selectedImage === img ? 'ring-2 ring-orange-500 border-orange-500' : 'border-gray-300 dark:border-gray-600'"
+              />
+            }
+          </div>
+        </div>
+  
+        <!-- Product Details Section -->
+        <div class="flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <!-- Title -->
+            <h2 class="text-3xl font-bold text-orange-600">
+              {{ productDtails.title }}
+            </h2>
+  
+            <!-- Description -->
+            <p class="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line leading-relaxed">
+              {{ productDtails.description }}
+            </p>
+  
+            <!-- Info Rows -->
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300 mt-2">
+              <div><span class="font-medium">Category:</span> {{ productDtails.category.name }}</div>
+              <div><span class="font-medium">Brand:</span> {{ productDtails.brand.name }}</div>
+              <div><span class="font-medium">Subcategory:</span> {{ productDtails.subcategory[0].name }}</div>
+              <div><span class="font-medium">Quantity:</span> {{ productDtails.quantity }}</div>
+              <div><span class="font-medium">Sold:</span> {{ productDtails.sold }}</div>
+            </div>
+  
+            <!-- Price -->
+            <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">
+              {{ productDtails.price }} EGP
+            </div>
+  
+            <!-- Rating Stars -->
+            <div class="flex items-center gap-1">
+              @for (width of starStyles; track $index) {
+                <div class="relative w-5 h-5 text-gray-400 dark:text-gray-500">
+                  <i class="far fa-star absolute inset-0 w-full h-full"></i>
+                  <i
+                    class="fas fa-star text-yellow-400 absolute inset-0 overflow-hidden"
+                    [style.width]="width"
+                    style="display: inline-block"
+                  ></i>
+                </div>
+              }
+              <span class="text-sm text-gray-600 dark:text-gray-400">({{ productDtails.ratingsAverage }} average)</span>
+            </div>
+  
+            <span class="text-sm text-gray-600 dark:text-gray-400">({{ productDtails.ratingsQuantity }} ratings)</span>
+          </div>
+  
+          <!-- Add to Cart Button -->
+          <button
+            class= " cursor-pointer w-full mt-4 bg-orange-600 hover:bg-orange-700 text-white text-sm py-3 rounded-lg font-semibold transition-colors duration-300 shadow-md"
+            (click)="addToCard(productDtails._id)"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+  

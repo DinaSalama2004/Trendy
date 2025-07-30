@@ -1,0 +1,37 @@
+<section class="container mx-auto px-4 py-6">
+    <h2 class="text-3xl font-bold text-gray-800/100 dark:text-white mb-6 text-center">
+        Explore <span class="text-orange-600">
+        Brands
+     </span>  
+    </h2>
+  
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @for (brand of AllBrands; track brand._id) 
+        {
+          <div class="hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-200  bg-white cursor-pointer dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+            <div class="overflow-hidden rounded-t-xl h-40">
+              <img [src]="brand.image" [alt]="brand.name" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"/>
+            </div>
+  
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-100 text-center">
+                {{ brand.name }}
+              </h3>
+            </div>
+  
+            
+          </div>
+        }
+  
+        @empty {
+  
+          <p class=" text-xl text-center text-gray-600 dark:text-gray-300 mt-6">No Brands found.</p>
+          
+        }
+      </div>
+  
+  
+  
+  
+  </section>
+  

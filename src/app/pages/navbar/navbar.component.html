@@ -1,0 +1,136 @@
+<nav class="bg-gray-200 border-gray-200 shadow-2xl dark:bg-gray-900 py-0 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    
+    <!-- Logo -->
+    <div class="flex items-center -mt-1 pe-5">
+      <svg class="w-15 h-15" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#DD6B20" d="M40.5,-26.6C51.5,-18.6,58.5,-1.8,53.9,9.9C49.3,21.6,33,28.2,18.3,33.5C3.6,38.9,-9.5,42.9,-14.7,37.7C-19.9,32.4,-17.2,17.9,-26.1,-0.1C-35.1,-18.1,-55.7,-39.5,-53.3,-45.5C-50.9,-51.5,-25.4,-42.2,-5.3,-38C14.8,-33.7,29.6,-34.6,40.5,-26.6Z" transform="translate(100 100)" />
+      </svg>
+      <p class="-ms-3 text-orange-500 font-extrabold text-2xl drop-shadow-sm">{{ 'nav.name' | translate }}</p>
+    </div>
+
+    <!-- Toggle Menu Button -->
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
+
+
+  
+
+      <div class=" w-full md:flex flex-grow justify-between ps-5 md:w-auto" id="navbar-default">
+
+        <!-- Main Nav Links  if Auth-->
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 gap-3  rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 text-gray-500 capitalize">
+         
+         
+         
+          @if (isLoggin()===true) {
+            
+            <li>
+            <a class="block hover:text-orange-500 dark:text-white " routerLink="/home" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.home' | translate }}</a>
+          </li>
+          <li>
+            <a class="block hover:text-orange-500 dark:text-white " routerLink="/Favorite Products" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.favorite' | translate }}</a>
+          </li>
+          <li>
+            <a class="block hover:text-orange-500 dark:text-white " routerLink="/categories" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.categories' | translate }}</a>
+          </li>
+          <li>
+            <a class="block hover:text-orange-500 dark:text-white " routerLink="/brand" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.brands' | translate }}</a>
+          </li>
+          <li>
+            <a class="block hover:text-orange-500 dark:text-white " routerLink="/products" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.products' | translate }}</a>
+          </li>
+          <li>
+            <a class="block hover:text-orange-500 dark:text-white " routerLink="/cart" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.cart' | translate }}</a>
+          </li>
+          
+          <li class="relative">
+            <i class="fa-solid fa-cart-shopping text-lg text-gray-700 dark:text-white  hover:text-orange-500  cursor-pointer"  routerLink="/cart" routerLinkActive="text-orange-500"></i>
+            
+            <span
+              class="absolute -top-2 -right-2 bg-green-600 text-white text-[15px] font-semibold px-1.5 py-0.5 rounded-full shadow-md border border-white dark:border-gray-900 "
+            >
+              {{ numOfItemsInCart()}}
+            </span>
+          </li>
+          
+          
+         
+          
+       
+        }
+        @else {
+<div class=" flex space-x-5">
+  <li>
+    <a class="block hover:text-orange-500" routerLink="/register" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.register' | translate }}</a>
+  </li>
+  <li>
+    <a class="block hover:text-orange-500" routerLink="/login" routerLinkActive="text-orange-500" aria-current="page">{{ 'nav.login' | translate }}</a>
+  </li>
+
+</div>
+
+        }
+        </ul>
+  
+        <!-- Right Icons & Buttons -->
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4   md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-200 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 text-gray-500 capitalize">
+  
+  
+          <!-- Auth Links -->
+    <div class="flex space-x-1 px-2">
+         <!-- Language Toggle -->
+         <li>
+          <button (click)="changeLang()" class="text-sm text-white bg-orange-500 hover:bg-orange-600 font-semibold px-3 py-1 rounded-md shadow transition cursor-pointer">
+            {{ 'nav.langButton' | translate }}
+          </button>
+        </li>
+      @if (isLoggin()===true) {
+
+            <li>
+            <p class="block  cursor-pointer text-white rounded-md text-sm px-3 py-1 hover:bg-red-600 bg-red-700 transition" (click)="signOut()" aria-current="page">{{ 'nav.signout' | translate }}</p>
+          </li>
+        }
+       
+  
+        <li>
+
+          
+          <label class="inline-flex items-center cursor-pointer">
+            <!-- Toggle Input -->
+            <input (change)="toggleTheme()" type="checkbox" class="sr-only peer" >
+          
+            <!-- Toggle Slider -->
+          
+            <!-- Icon Text -->
+            <span class="ms-3 text-xl font-medium text-gray-900 dark:text-gray-300">
+
+              @if(isDarkMode()){
+                <i class="fa-solid fa-sun text-yellow-500"></i>
+
+              }
+              @else {
+                <i  class="fa-solid fa-moon text-gray-900"></i>
+
+              }
+            </span>
+          </label>
+          
+          
+        </li>
+      
+    </div>
+  
+  
+  
+        </ul>
+      </div>
+  
+    <!-- Navbar Links -->
+
+  </div>
+</nav>

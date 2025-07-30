@@ -1,0 +1,70 @@
+{
+
+    "nav": {
+    "name":"trendy", 
+    "home": "Home",
+    "categories": "Categories",
+    "brands": "Brands",
+    "products": "Products",
+    "cart": "Cart",
+    "register": "Register",
+    "login": "Login",
+    "signout": "Sign Out",
+    "langButton": "العربية",
+    "favorite":"favorite"
+  }
+,
+
+
+  "footer": {
+    "appTitle": "Get the trendy App",
+    "appDescription": "We’ll send you a link to download the app",
+    "placeholder": "Enter your email",
+    "button": "Share App Link",
+    "paymentTitle": "Payment Methods",
+    "downloadTitle": "Get Deliveries with trendy",
+    "social": {
+      "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "instagram": "Instagram",
+      "snapchat": "Snapchat"
+    }
+  },
+  "submit":"submit",
+
+  "login":{
+    "smartLogin": "Smart Login",
+    "email": "Email",
+    "password": "Password",
+    "onlyGmailAccepted": "Only Gmail is accepted",
+    "mustIncludeLetterAndNumber": "Must include at least 1 letter and 1 number",
+    "signInSuccess": "Sign in successful 🎉",
+    "signIn": "Sign in",
+    "forgetPassword": "Forget password?",
+    "notHaveAccount": "Not have an account?",
+    "signUp": "Sign Up",
+    "errorMessag":" error in email or password or not register yet " 
+  },
+  "register": {
+    "smartRegister": "Create Your Account",
+    "fullName": "Full name",
+    "fullNameError":"Full Name must at least contain 3 chars ",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "phone": "Phone Number",
+    "onlyGmailAccepted": "Only Gmail addresses are accepted.",
+    "mustIncludeLetterAndNumber": "Password must include at least one letter and one number.",
+    "onlyEgyptian": "Only valid Egyptian numbers are allowed.",
+    "signUp": "Sign Up",
+    "signUpSuccess": "Account created successfully 🎉",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign In",
+    "matchPassword":"confirm password not match Password"
+
+  },
+  "forgot":{
+    "resetCode":"resetCode"
+  }
+}
