@@ -49,8 +49,8 @@ export class CheckoutComponent implements OnInit{
       {
         next:(res)=>{
         console.log("checkOut" , res);
-        window.open(res.session.url);
-      this.isLoading=false
+         this.router.navigate(['/allorders']);
+        this.isLoading=false
 
 
         },
