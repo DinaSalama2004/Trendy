@@ -11,12 +11,10 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class CartService {
 
-  token:string=''
   constructor(private readonly httpClient: HttpClient  ,  @Inject(PLATFORM_ID) private platformId: Object ) { 
 
     if (isPlatformBrowser(this.platformId)) {
       if(localStorage.getItem("token")){
-      this.token=localStorage.getItem("token")!
       this.getLoggenUserCart().subscribe({})
       }
     }

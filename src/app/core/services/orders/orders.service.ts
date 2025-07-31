@@ -8,7 +8,7 @@ import { environment } from '../../environment/env';
 })
 export class OrdersService {
   constructor(private readonly httpClient:HttpClient) { }
-  token=localStorage.getItem('token')|| ''
+
 
   checkOut(cardId:string , checkOutForm:object):Observable<any>{
 
@@ -21,7 +21,7 @@ export class OrdersService {
  ,
     {
       headers:{
-        token:this.token
+      token: localStorage.getItem('token') || ''
       }
     }
     )
@@ -39,7 +39,7 @@ export class OrdersService {
  ,
     {
       headers:{
-        token:this.token
+       token: localStorage.getItem('token') || ''
       }
     }
     )
