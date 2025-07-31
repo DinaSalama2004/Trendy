@@ -36,7 +36,7 @@ export const routes: Routes = [
 {path:'allorders', component:AllordersComponent , title:'all orders'},
 
 
-
+{path:'**', component:NotFoundComponent , title:'Not Found'},
 
 ]},
 
