@@ -11,8 +11,8 @@ export class OrdersService {
 
 
   checkOut(cardId:string , checkOutForm:object):Observable<any>{
-
-    return this.httpClient.post(`${environment.baseUrl}orders/checkout-session/${cardId}?url=https://trendy-gtx1.vercel.app/#/` 
+    const returnUrl = encodeURIComponent("https://trendy-gtx1.vercel.app/#/");
+    return this.httpClient.post(`${environment.baseUrl}orders/checkout-session/${cardId}?url=${returnUrl}` 
       , 
 
       {

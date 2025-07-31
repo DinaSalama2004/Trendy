@@ -88,7 +88,5 @@ this.router.navigate(['/allorders']);
   }
 
 
-  onChange(e:any) {
-  this.paymentType.set(e.target.value);
-}
+
 }
