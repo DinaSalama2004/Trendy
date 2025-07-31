@@ -30,7 +30,7 @@ readonly numOfItemsInCart = computed(() => this.cartService.numberOfCartItems())
       // Check initial theme from <html> attribute
       const htmlElement = document.documentElement;
       const isDark = htmlElement.getAttribute('data-theme') === 'dark';
-      this.isDarkMode.set(isDark);
+      this.isDarkMode.set(true);
     }
   }
 
