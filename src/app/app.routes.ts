@@ -1,5 +1,4 @@
 import { FavoriteProductsComponent } from './pages/favoriteProducts/favorite-products/favorite-products.component';
-import { AllOrdersComponent } from './pages/allOrders/all-orders/all-orders.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AuthComponent } from './layout/auth/auth.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -15,6 +14,7 @@ import { authGuard } from './core/Guards/auth/auth.guard';
 import { DetailsComponent } from './pages/details/details.component';
 import { ForrgotPassComponent } from './pages/ForgotPassword/forrgot-pass/forrgot-pass.component';
 import { BrandsComponent} from './pages/brands/brands.component';
+import { AllordersComponent } from './allorders/allorders/allorders.component';
 
 export const routes: Routes = [
 
@@ -29,18 +29,11 @@ export const routes: Routes = [
 {path:'products', component:ProductsComponent , title:'products'}, 
 {path:'cart', component:CartComponent , title:'cart'},
 {path:'Favorite Products', component:FavoriteProductsComponent , title:'Favorite Products'},
-// {
-//     path: 'details/:id',
-//     component: DetailsComponent,
-//     data: {
-//       renderMode: 'server'
-//     }
-//     , title:'prod Details'
-//   },
+
   
 {path:'details/:id', component:DetailsComponent , title:'prod Details'},
 {path:'checkOut/:id', component:CheckoutComponent , title:'check Out'},
-{path:'allorders', component:AllOrdersComponent , title:'all orders'},
+{path:'allorders', component:AllordersComponent , title:'all orders'},
 
 
 
