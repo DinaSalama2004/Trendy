@@ -36,7 +36,6 @@ export const routes: Routes = [
 {path:'allorders', component:AllordersComponent , title:'all orders'},
 
 
-{path:'**', component:NotFoundComponent , title:'Not Found'},
 
 ]},
 
@@ -48,6 +47,9 @@ export const routes: Routes = [
     {path:'forgot pass', component:ForrgotPassComponent , title:'forgot pass'},
    
     ]}
+
+
     ,{path:'**', component:NotFoundComponent , title:'Not Found'}
+
 
 ];
