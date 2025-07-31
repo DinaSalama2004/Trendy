@@ -12,7 +12,7 @@ export class OrdersService {
 
   checkOut(cardId:string , checkOutForm:object):Observable<any>{
 
-    return this.httpClient.post(`${environment.baseUrl}orders/checkout-session/${cardId}?url=${window.location.origin}/#/` 
+    return this.httpClient.post(`${environment.baseUrl}orders/checkout-session/${cardId}?url=${window.location.origin}` 
       , 
 
       {

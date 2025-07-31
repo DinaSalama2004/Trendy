@@ -46,7 +46,7 @@ export const appConfig: ApplicationConfig = {
 
     provideRouter(
       routes ,
-      withHashLocation() , 
+      // withHashLocation() , 
     //  when the page has conenet large that have scroll i want when open page start from top for example 
     // 3 types 
     // 1- disabled default  means  لما يتحرك من روت ل التانية مش بيرجع السكرول ل فوق 
