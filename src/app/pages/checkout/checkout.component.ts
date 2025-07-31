@@ -51,7 +51,7 @@ export class CheckoutComponent implements OnInit{
         console.log("checkOut" , res);
         console.log(res.session.url);
         
-        window.open(res.session.success_url);
+        window.open("https://trendy-gtx1.vercel.app/#/allorders");
 // this.router.navigate(['/allorders']);
 
       this.isLoading=false
